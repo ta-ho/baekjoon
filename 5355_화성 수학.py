@@ -20,6 +20,8 @@
 1.00
 '''
 
+# try1
+'''
 input_cal = []
 result = []
 num_cases = int(input())
@@ -38,3 +40,24 @@ for i in range(num_cases):
 
 for k in range(len(result)):
     print("%0.2f"%result[k])
+'''
+# 굳이 equation을 list로 안 만들어도 된다 (더 효율적)
+num_cases = int(input())
+results = []
+
+for _ in range(num_cases):
+    equation = input().split()
+    result = float(equation[0])
+
+    for operator in equation[1:]:
+        if operator == '@':
+            result *= 3
+        elif operator == '%':
+            result += 5
+        elif operator == '#':
+            result -= 7
+    
+    results.append(result)
+
+for result in results:
+    print(f"{result:.2f}")
